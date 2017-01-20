@@ -1,0 +1,12 @@
+[kL,outFileL]=ObjectSeperationColor('C:\Users\YASARA\Desktop\FYPTraningModule\testInLeaf','L',1000);
+[kS,outFileS]=ObjectSeperationColor('C:\Users\YASARA\Desktop\FYPTraningModule\testInStem','S',1000);
+[L1,L2,L3 ]=ReadColorVals( outFileL,kL );
+[S1,S2,S3 ]=ReadColorVals( outFileS,kS );
+W=getWeights(L1,L2,S1,S2);
+[ Lout,Sout ]=getCombinedColorComponent(W,L1,L2,S1,S2);
+%[ accuracy1,Th1]=GetAccuracy(double(L1),double(S1));
+%[ accuracy2,Th2]=GetAccuracy(double(L2),double(S2));
+%[ accuracy3,Th3]=GetAccuracy(double(L3),double(S3));
+%WriteFile( Th1,Th2,Th3 );
+WriteFileWeights(W);
+[ accuracy,Th]=GetAccuracy(double(Lout),double(Sout));
